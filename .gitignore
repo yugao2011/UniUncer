@@ -1,0 +1,26 @@
+# Python
+*.pyc
+__pycache__/
+*.egg-info
+
+# PyTorch / build artifacts
+*.pth
+*.npy
+*.so
+build/
+
+# Editor / OS
+*.swp
+.vscode
+.DS_Store
+
+# Large / generated directories
+archive/
+ckpt/
+data/
+work_dirs/
+
+# Misc
+*.whl
+*.log
+lib/
