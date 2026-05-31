@@ -124,6 +124,10 @@ bash scripts/test.sh   # uses projects/configs/uniuncer_stage2.py + stage2 model
 3. We tested assigning velocity to vectorized static map elements, but this feature is currently commented out in the codebase.
 
 
+### Thansk
+
+Many thanks to the collaborator in Bosch Research China
+
 ## Citation
 
 If you find UniUncer useful in your research, please consider citing:
