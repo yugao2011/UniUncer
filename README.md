@@ -58,8 +58,8 @@ All checkpoints are hosted on [Hugging Face 🤗](https://huggingface.co/EricGao
 
 | Stage | Config | Checkpoint | Hugging Face | Training GPUs | Batch Size | Epochs |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| Stage 1 (Perception) | [cfg](projects/configs/uniuncer_stage1.py) | `uncer_stage1_iter_11720_1e-4.pth` | [Download](https://huggingface.co/EricGaoSH/UniUncer/resolve/main/uncer_stage1_iter_11720_1e-4.pth) | 4 | 24 | 10 |
-| Stage 2 (Planning) | [cfg](projects/configs/uniuncer_stage2.py) | `uniuncer_final_iter_11720.pth` | [Download](https://huggingface.co/EricGaoSH/UniUncer/resolve/main/uniuncer_final_iter_11720.pth) | 4 | 24 | 10 |
+| Stage 1 (Perception) | [cfg](projects/configs/uniuncer_stage1.py) | `uncer_stage1_iter_11720_1e-4.pth` | [Download](https://huggingface.co/EricGaoSH/UniUncer/blob/main/uniuncer_stage1_iter_11720_1e-4.pth) | 4 | 24 | 10 |
+| Stage 2 (Planning) | [cfg](projects/configs/uniuncer_stage2.py) | `uniuncer_stage2_iter_11720.pth` | [Download](https://huggingface.co/EricGaoSH/UniUncer/blob/main/uniuncer_stage2_iter_11720.pth) | 4 | 24 | 10 |
 
 **Download from Hugging Face Hub**
 
