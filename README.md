@@ -75,7 +75,7 @@ sh scripts/kmeans.sh        # generates data/kmeans/*.npy
 
 ### Training
 
-Two-stage training (perception → planning) on **4 GPUs**, Stage1 needs to initialize the model with sparse drive-s stage1 and train with small learning rate 1e-4 for 10 epochs since we updated the heads of both static and dynamic. Stage2 will load the weights from the stage1 of our model and train for 10 epochs:
+Two-stage training (perception → planning) on **4 GPUs**. Stage 1 initializes the model with SparseDrive-S Stage 1 weights and trains with a small learning rate (1e-4) for 10 epochs, since we updated both the static and dynamic heads. Stage 2 loads the weights from Stage 1 and trains for 10 epochs:
 ```bash
 # Stage 1: detection + tracking + online mapping
 bash scripts/train.sh   # uses projects/configs/uniuncer_stage1.py
