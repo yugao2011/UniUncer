@@ -54,12 +54,23 @@ The open-loop planning results below are reproduced from `training_records/20260
 
 ## Model Zoo
 
-All checkpoints and logs are available in the repository under `ckpt/`.
+All checkpoints are hosted on [Hugging Face 🤗](https://huggingface.co/YOUR_USERNAME/uniuncer) and also available under `ckpt/`.
 
-| Stage | Config | Checkpoint | Training GPUs | Batch Size | Epochs |
-| :---: | :---: | :---: | :---: | :---: | :---: |
-| Stage 1 (Perception) | [cfg](projects/configs/uniuncer_stage1.py) | `ckpt/uncer_stage1_iter_11720_1e-4.pth` | 4 | 24 | 10 |
-| Stage 2 (Planning) | [cfg](projects/configs/uniuncer_stage2.py) | `ckpt/uniuncer_stage2_iter_11720.pth` | 4 | 24 | 10 |
+| Stage | Config | Checkpoint | Hugging Face | Training GPUs | Batch Size | Epochs |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| Stage 1 (Perception) | [cfg](projects/configs/uniuncer_stage1.py) | `uncer_stage1_iter_11720_1e-4.pth` | [Download](https://huggingface.co/YOUR_USERNAME/uniuncer/resolve/main/uncer_stage1_iter_11720_1e-4.pth) | 4 | 24 | 10 |
+| Stage 2 (Planning) | [cfg](projects/configs/uniuncer_stage2.py) | `uniuncer_final_iter_11720.pth` | [Download](https://huggingface.co/YOUR_USERNAME/uniuncer/resolve/main/uniuncer_final_iter_11720.pth) | 4 | 24 | 10 |
+
+**Download from Hugging Face Hub**
+```python
+from huggingface_hub import hf_hub_download
+
+ckpt_path = hf_hub_download(
+    repo_id="YOUR_USERNAME/uniuncer",
+    filename="uniuncer_final_iter_11720.pth",
+    local_dir="./ckpt"
+)
+```
 
 **Baselines**
 - `ckpt/sparsedrive_stage1.pth` / `ckpt/sparsedrive_stage2.pth` — Original SparseDrive checkpoints.
