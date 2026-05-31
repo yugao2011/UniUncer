@@ -35,6 +35,19 @@ The design adds minimal overhead (~0.5 FPS drop) and is plug-and-play for common
 
 - **EPDMS** improved by **10.8%** over the baseline, with notable gains in interaction-heavy scenes.
 
+## Reproduction Results
+
+The open-loop planning results below are reproduced from `training_records/20260220_081000.log` (trained on 4× NVIDIA A800-SXM4-80GB, CUDA 11.8, PyTorch 2.0.1+cu118). Because of differences in GPU architecture and CUDA versions, the reproduced numbers differ slightly from the paper:
+
+| Metric | 0.5s | 1.0s | 1.5s | 2.0s | 2.5s | 3.0s | Avg |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| L2 (m) | 0.1676 | 0.2644 | 0.3802 | 0.5192 | 0.6818 | 0.8675 | **0.5504** |
+| Col. (%) | 0.00 | 0.00 | 0.02 | 0.05 | 0.10 | 0.19 | **0.08** |
+
+**Comparison with the paper:**
+- **L2 (Avg)** is better than the paper: reproduced **0.5504 m** vs. paper **0.57 m**.
+- **Col. (Avg)** is slightly worse than the paper: reproduced **0.08%** vs. paper **0.07%** (only 0.01% higher).
+
 ---
 
 ## Model Zoo
@@ -44,7 +57,7 @@ All checkpoints and logs are available in the repository under `ckpt/`.
 | Stage | Config | Checkpoint | Training GPUs | Batch Size | Epochs |
 | :---: | :---: | :---: | :---: | :---: | :---: |
 | Stage 1 (Perception) | [cfg](projects/configs/uniuncer_stage1.py) | `ckpt/uncer_stage1_iter_11720_1e-4.pth` | 4 | 24 | 10 |
-| Stage 2 (Planning) | [cfg](projects/configs/uniuncer_stage2.py) | `ckpt/uncer_stage2_iter_11720.pth` | 4 | 24 | 10 |
+| Stage 2 (Planning) | [cfg](projects/configs/uniuncer_stage2.py) | `ckpt/uniuncer_stage2_iter_11720.pth` | 4 | 24 | 10 |
 
 **Baselines**
 - `ckpt/sparsedrive_stage1.pth` / `ckpt/sparsedrive_stage2.pth` — Original SparseDrive checkpoints.
@@ -75,7 +88,7 @@ sh scripts/kmeans.sh        # generates data/kmeans/*.npy
 
 ### Training
 
-Two-stage training (perception → planning) on **4 GPUs**. Stage 1 initializes the model with SparseDrive-S Stage 1 weights and trains with a small learning rate (1e-4) for 10 epochs, since we updated both the static and dynamic heads. Stage 2 loads the weights from Stage 1 and trains for 10 epochs:
+Two-stage training (perception → planning) on **4 GPUs**. Because we replaced both the static and dynamic regression heads, Stage 1 initializes from SparseDrive-S Stage 1 weights and trains with a small learning rate (1e-4) for 10 epochs. Stage 2 loads the Stage 1 weights and trains for 10 epochs:
 ```bash
 # Stage 1: detection + tracking + online mapping
 bash scripts/train.sh   # uses projects/configs/uniuncer_stage1.py
@@ -91,7 +104,7 @@ Smaller batch size leads to compromised performance.
 
 Test on **2 GPUs** (or adapt `scripts/test.sh` to your local setup):
 ```bash
-bash scripts/test.sh   # uses projects/configs/uniuncer_stage2.py + ckpt/uniuncer_final_iter_11720.pth
+bash scripts/test.sh   # uses projects/configs/uniuncer_stage2.py + stage2 model
 ```
 
 ---
