@@ -37,19 +37,6 @@ The design adds minimal overhead (~0.5 FPS drop) and is plug-and-play for common
 
 > **TODO:** Navsim evaluation implementation will be released in the future.
 
-## Reproduction Results
-
-The open-loop planning results below are reproduced from `training_records/20260220_081000.log` (trained on 4× NVIDIA A800-SXM4-80GB, CUDA 11.8, PyTorch 2.0.1+cu118). Because of differences in GPU architecture and CUDA versions, the reproduced numbers differ slightly from the paper:
-
-| Metric | 0.5s | 1.0s | 1.5s | 2.0s | 2.5s | 3.0s | Avg |
-| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| L2 (m) | 0.1676 | 0.2644 | 0.3802 | 0.5192 | 0.6818 | 0.8675 | **0.5504** |
-| Col. (%) | 0.00 | 0.00 | 0.02 | 0.05 | 0.10 | 0.19 | **0.08** |
-
-**Comparison with the paper:**
-- **L2 (Avg)** is better than the paper: reproduced **0.5504 m** vs. paper **0.57 m**.
-- **Col. (Avg)** is slightly worse than the paper: reproduced **0.08%** vs. paper **0.07%** (only 0.01% higher).
-
 ---
 
 ## Model Zoo
@@ -68,6 +55,22 @@ The model weights of stage1 and stage2 are in https://huggingface.co/EricGaoSH/U
 **Baselines**
 - `ckpt/sparsedrive_stage1.pth` / `ckpt/sparsedrive_stage2.pth` — Original SparseDrive checkpoints.
 - `ckpt/resnet50-19c8e357.pth` — ImageNet pretrained backbone.
+
+---
+
+
+## Reproduction Results
+
+The open-loop planning results below are reproduced from `training_records/20260220_081000.log` (trained on 4× NVIDIA A800-SXM4-80GB, CUDA 11.8, PyTorch 2.0.1+cu118). Because of differences in GPU architecture and CUDA versions, the model weights in the upper links are the reproduced model weights and the reproduced numbers differ slightly from the paper:
+
+| Metric | 0.5s | 1.0s | 1.5s | 2.0s | 2.5s | 3.0s | Avg |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| L2 (m) | 0.1676 | 0.2644 | 0.3802 | 0.5192 | 0.6818 | 0.8675 | **0.5504** |
+| Col. (%) | 0.00 | 0.00 | 0.02 | 0.05 | 0.10 | 0.19 | **0.08** |
+
+**Comparison with the paper:**
+- **L2 (Avg)** is better than the paper: reproduced **0.5504 m** vs. paper **0.57 m**.
+- **Col. (Avg)** is slightly worse than the paper: reproduced **0.08%** vs. paper **0.07%** (only 0.01% higher).
 
 ---
 
