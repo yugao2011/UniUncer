@@ -5,7 +5,7 @@ bash ./tools/dist_train.sh \
    --deterministic
 
 ## stage2
-bash ./tools/dist_train.sh \
-   projects/configs/uniuncer_stage2.py \
-   4 \
-   --deterministic
+# bash ./tools/dist_train.sh \
+#    projects/configs/uniuncer_stage2.py \
+#    4 \
+#    --deterministic

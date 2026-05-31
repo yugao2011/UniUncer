@@ -16,7 +16,7 @@ total_batch_size = 24
 num_gpus = 4
 batch_size = total_batch_size // num_gpus
 num_iters_per_epoch = int(length[version] // (num_gpus * batch_size))
-num_epochs = 20
+num_epochs = 10
 checkpoint_epoch_interval = 5
 
 dist_params = dict(backend='nccl')
