@@ -4,7 +4,7 @@
 from huggingface_hub import HfApi, create_repo, upload_file
 
 # ==================== 修改这里 ====================
-REPO_ID = "YOUR_USERNAME/uniuncer"  # 例如 "gyu3nj/uniuncer"
+REPO_ID = "EricGaoSH/UniUncer"
 # =================================================
 
 CKPT_FILES = [
