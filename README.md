@@ -62,15 +62,8 @@ All checkpoints are hosted on [Hugging Face 🤗](https://huggingface.co/EricGao
 | Stage 2 (Planning) | [cfg](projects/configs/uniuncer_stage2.py) | `uniuncer_final_iter_11720.pth` | [Download](https://huggingface.co/EricGaoSH/UniUncer/resolve/main/uniuncer_final_iter_11720.pth) | 4 | 24 | 10 |
 
 **Download from Hugging Face Hub**
-```python
-from huggingface_hub import hf_hub_download
 
-ckpt_path = hf_hub_download(
-    repo_id="EricGaoSH/UniUncer",
-    filename="uniuncer_final_iter_11720.pth",
-    local_dir="./ckpt"
-)
-```
+The model weights of stage1 and stage2 are in https://huggingface.co/EricGaoSH/UniUncer
 
 **Baselines**
 - `ckpt/sparsedrive_stage1.pth` / `ckpt/sparsedrive_stage2.pth` — Original SparseDrive checkpoints.
