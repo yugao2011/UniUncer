@@ -44,7 +44,7 @@ All checkpoints and logs are available in the repository under `ckpt/`.
 | Stage | Config | Checkpoint | Training GPUs | Batch Size | Epochs |
 | :---: | :---: | :---: | :---: | :---: | :---: |
 | Stage 1 (Perception) | [cfg](projects/configs/uniuncer_stage1.py) | `ckpt/uncer_stage1_iter_11720_1e-4.pth` | 4 | 24 | 10 |
-| Stage 2 (Planning) | [cfg](projects/configs/uniuncer_stage2.py) | `ckpt/uniuncer_final_iter_11720.pth` | 4 | 24 | 10 |
+| Stage 2 (Planning) | [cfg](projects/configs/uniuncer_stage2.py) | `ckpt/uncer_stage2_iter_11720.pth` | 4 | 24 | 10 |
 
 **Baselines**
 - `ckpt/sparsedrive_stage1.pth` / `ckpt/sparsedrive_stage2.pth` — Original SparseDrive checkpoints.
@@ -75,7 +75,7 @@ sh scripts/kmeans.sh        # generates data/kmeans/*.npy
 
 ### Training
 
-Two-stage training (perception → planning) on **4 GPUs**:
+Two-stage training (perception → planning) on **4 GPUs**, Stage1 needs to initialize the model with sparse drive-s stage1 and train with small learning rate 1e-4 for 10 epochs since we updated the heads of both static and dynamic. Stage2 will load the weights from the stage1 of our model and train for 10 epochs:
 ```bash
 # Stage 1: detection + tracking + online mapping
 bash scripts/train.sh   # uses projects/configs/uniuncer_stage1.py
