@@ -35,6 +35,8 @@ The design adds minimal overhead (~0.5 FPS drop) and is plug-and-play for common
 
 - **EPDMS** improved by **10.8%** over the baseline, with notable gains in interaction-heavy scenes.
 
+> **TODO:** Navsim evaluation implementation will be released in the future.
+
 ## Reproduction Results
 
 The open-loop planning results below are reproduced from `training_records/20260220_081000.log` (trained on 4× NVIDIA A800-SXM4-80GB, CUDA 11.8, PyTorch 2.0.1+cu118). Because of differences in GPU architecture and CUDA versions, the reproduced numbers differ slightly from the paper:
