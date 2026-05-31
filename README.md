@@ -44,7 +44,7 @@ All checkpoints and logs are available in the repository under `ckpt/`.
 | Stage | Config | Checkpoint | Training GPUs | Batch Size | Epochs |
 | :---: | :---: | :---: | :---: | :---: | :---: |
 | Stage 1 (Perception) | [cfg](projects/configs/uniuncer_stage1.py) | `ckpt/uncer_stage1_iter_11720_1e-4.pth` | 4 | 24 | 10 |
-| Stage 2 (Planning) | [cfg](projects/configs/uniuncer_stage2.py) | `ckpt/uniuncer_final_iter_11720.pth` | 4 | 24 | 20 |
+| Stage 2 (Planning) | [cfg](projects/configs/uniuncer_stage2.py) | `ckpt/uniuncer_final_iter_11720.pth` | 4 | 24 | 10 |
 
 **Baselines**
 - `ckpt/sparsedrive_stage1.pth` / `ckpt/sparsedrive_stage2.pth` — Original SparseDrive checkpoints.
