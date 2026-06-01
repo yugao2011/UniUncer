@@ -1,4 +1,4 @@
-# UniUncer: Unified Dynamic–Static Uncertainty for End-to-End Driving
+# UniUncer: Unified Dynamic–Static Uncertainty for End-to-End Driving (ICRA 2026)
 
 Official implementation of **[UniUncer: Unified Dynamic–Static Uncertainty for End-to-End Driving](https://arxiv.org/abs/2603.07686v2)**.
 
