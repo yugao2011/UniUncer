@@ -2,7 +2,7 @@
 
 Official implementation of **[UniUncer: Unified Dynamic–Static Uncertainty for End-to-End Driving](https://arxiv.org/abs/2603.07686v2)**.
 
-> UniUncer is built on top of [SparseDrive](https://arxiv.org/abs/2405.19620) (ICRA 2026). We extend the sparse-centric end-to-end driving pipeline with lightweight, unified uncertainty estimation for both static and dynamic scene elements.
+> UniUncer is built on top of [SparseDrive](https://arxiv.org/abs/2405.19620) (ICRA 2025). We extend the sparse-centric end-to-end driving pipeline with lightweight, unified uncertainty estimation for both static and dynamic scene elements.
 
 ---
 
